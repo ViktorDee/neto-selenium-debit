@@ -1,7 +1,6 @@
 
 package ru.netology;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class DebitFormTest {
 
     private WebDriver driver;
+
     @BeforeAll
     static void setupAll() {
-        WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 
     }
@@ -39,8 +38,6 @@ public class DebitFormTest {
         driver.quit();
         driver = null;
     }
-
-
 
     @Test
     void testValidData() {
