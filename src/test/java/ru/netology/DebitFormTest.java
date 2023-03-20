@@ -62,8 +62,8 @@ public class DebitFormTest {
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button__text")).click();
 
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
+        String expected = "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.";
+        String actual = driver.findElement(By.cssSelector(".input_theme_alfa-on-white.input_invalid .input__sub")).getText().trim();
 
         assertEquals(expected, actual);
     }
@@ -76,22 +76,8 @@ public class DebitFormTest {
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button__text")).click();
 
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void testInvalidNameAndNumber() {
-        driver.get("http://localhost:9999");
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("John Doe");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+7905915823255");
-        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
-        driver.findElement(By.className("button__text")).click();
-
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
+        String expected = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
+        String actual = driver.findElement(By.cssSelector(".input_theme_alfa-on-white.input_invalid .input__sub")).getText().trim();
 
         assertEquals(expected, actual);
     }
