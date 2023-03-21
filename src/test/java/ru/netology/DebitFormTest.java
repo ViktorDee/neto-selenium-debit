@@ -115,7 +115,7 @@ public class DebitFormTest {
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79059158232");
         driver.findElement(By.className("button__text")).click();
 
-        String expected = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid")).getText();
+        String expected = "Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй";
         String actual = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid")).getText();
 
         assertEquals(expected, actual);
